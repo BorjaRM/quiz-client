@@ -1,0 +1,34 @@
+<div style="text-align:center">
+  <p>
+    There are currently <strong>{{users}}</strong> users online. Start playing!
+  </p>
+</div>
+
+
+<div *ngIf="gameIsStarted && question" style="text-align:center">
+  <p>{{remainingTime}}</p>
+  <p><strong>{{question.question}}</strong></p>
+  <p *ngFor="let q of question.options"> {{q}}</p>
+</div>
+<p *ngIf="timerEnded" style="text-align:center">the correct answer is: {{question.options[question.answer]}}</p>
+
+<div *ngIf="!gameIsStarted" style="text-align:center">
+  <button mat-fab color="accent" (click)="startGame()">Play!</button>
+</div>
+
+<div class="radio-toolbar">
+  <input type="radio" id="radioApple" name="radioFruit" value="apple" checked>
+  <label for="radioApple">Apple</label>
+
+  <input type="radio" id="radioBanana" name="radioFruit" value="banana">
+  <label for="radioBanana">Banana</label>
+
+  <input type="radio" id="radioOrange" name="radioFruit" value="orange">
+  <label for="radioOrange">Orange</label> 
+</div>
+
+
+
+
+
+
